@@ -31,15 +31,9 @@ jobs:
 
       - name: Build with Gradle
         run: |
+          chomod +x gradlew
           ./gradlew assemble
           ./gradlew bundleRelease
-
-      - name: Deploy
-        if: ${{ github.event_name != 'pull_request' }}
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ github.token }}
-          publish_dir: ./doc
 
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
@@ -47,14 +41,3 @@ jobs:
           name: Lyric Getter release
           path: ./app/build/outputs/apk/release
 
-      - name: Upload Debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: Lyric Getter debug
-          path: ./app/build/outputs/apk/debug
-
-      - name: Upload Release Mapping
-        uses: actions/upload-artifact@v4
-        with:
-          name: Lyric Getter mapping
-          path: ./app/build/outputs/mapping/release/mapping.txt
