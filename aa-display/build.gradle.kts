@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "io.github.nitsuya.aa.display"
-        minSdk = 31
+        minSdk = 30
         targetSdk = 33
         versionCode = 1601
         versionName = "0.16.1#12.8+"
