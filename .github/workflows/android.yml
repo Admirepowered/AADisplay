@@ -32,8 +32,7 @@ jobs:
       - name: Build with Gradle
         run: |
           chmod +x gradlew
-          ./gradlew assemble
-          ./gradlew bundleRelease
+          ./gradlew gradlew clean build
       - name: ls file
         run: |
           ls -alRZ .
